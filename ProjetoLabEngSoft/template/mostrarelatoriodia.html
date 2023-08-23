@@ -1,0 +1,347 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatório gerado</title>
+    <link rel="stylesheet" href="{% static 'projeto/home.css'%}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+      #table-wrapper {
+        position:relative;
+      }
+      #table-scroll {
+        height:450px;
+        overflow:auto;  
+        margin-top:20px;
+      }
+      #table-wrapper table {
+        width:100%;
+      }
+      </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <div>
+              <a class="btn btn-primary" href="{% url 'relatorio' %}" role="button">Fechar Relatório &raquo;</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <h1 style="text-align: center;"> Relatório de voos do dia {{hoje}} </h1>
+    <br/>
+
+    <h2 style="text-align: center"> Voos cancelados </h2>
+
+    <div id="table-wrapper">
+      <div id="table-scroll">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Companhia Aérea</th>
+              <th>Código</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Partida Prevista</th>
+              <th>Chegada Prevista</th>
+              <th>Partida Real</th>
+              <th>Chegada Real</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for voo in voos_cancelados %}
+              <tr>
+                <th>{{voo.companhia_aerea}}</th>
+                <th>{{voo.codigo}}</th>
+                <th>{{voo.origem}}</th>
+                <th>{{voo.destino}}</th>
+                <th>{{voo.partida_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.partida_real|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_real|date:"H:i d/m/Y"}}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if voos_cancelados|length == 0 %}
+          <h4 style="color: rgb(255, 103, 103); text-align: center;">(Não há voos nessa categoria.)</h4>
+        {% endif %}
+      </div>
+    </div>
+
+    <h2 style="text-align: center"> Voos embarcando </h2>
+
+    <div id="table-wrapper">
+      <div id="table-scroll">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Companhia Aérea</th>
+              <th>Código</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Partida Prevista</th>
+              <th>Chegada Prevista</th>
+              <th>Partida Real</th>
+              <th>Chegada Real</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for voo in voos_embarcando %}
+              <tr>
+                <th>{{voo.companhia_aerea}}</th>
+                <th>{{voo.codigo}}</th>
+                <th>{{voo.origem}}</th>
+                <th>{{voo.destino}}</th>
+                <th>{{voo.partida_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.partida_real|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_real|date:"H:i d/m/Y"}}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if voos_embarcando|length == 0 %}
+          <h4 style="color: rgb(255, 103, 103); text-align: center;">(Não há voos nessa categoria.)</h4>
+        {% endif %}
+      </div>
+    </div>
+
+    <h2 style="text-align: center"> Voos programados </h2>
+
+    <div id="table-wrapper">
+      <div id="table-scroll">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Companhia Aérea</th>
+              <th>Código</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Partida Prevista</th>
+              <th>Chegada Prevista</th>
+              <th>Partida Real</th>
+              <th>Chegada Real</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for voo in voos_programados %}
+              <tr>
+                <th>{{voo.companhia_aerea}}</th>
+                <th>{{voo.codigo}}</th>
+                <th>{{voo.origem}}</th>
+                <th>{{voo.destino}}</th>
+                <th>{{voo.partida_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.partida_real|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_real|date:"H:i d/m/Y"}}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if voos_programados|length == 0 %}
+          <h4 style="color: rgb(255, 103, 103); text-align: center;">(Não há voos nessa categoria.)</h4>
+        {% endif %}
+      </div>
+    </div>
+
+    <h2 style="text-align: center"> Voos autorizados </h2>
+
+    <div id="table-wrapper">
+      <div id="table-scroll">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Companhia Aérea</th>
+              <th>Código</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Partida Prevista</th>
+              <th>Chegada Prevista</th>
+              <th>Partida Real</th>
+              <th>Chegada Real</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for voo in voos_autorizados %}
+              <tr>
+                <th>{{voo.companhia_aerea}}</th>
+                <th>{{voo.codigo}}</th>
+                <th>{{voo.origem}}</th>
+                <th>{{voo.destino}}</th>
+                <th>{{voo.partida_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.partida_real|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_real|date:"H:i d/m/Y"}}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if voos_autorizados|length == 0 %}
+          <h4 style="color: rgb(255, 103, 103); text-align: center;">(Não há voos nessa categoria.)</h4>
+        {% endif %}
+      </div>
+    </div>
+
+    <h2 style="text-align: center"> Voos taxiando </h2>
+
+    <div id="table-wrapper">
+      <div id="table-scroll">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Companhia Aérea</th>
+              <th>Código</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Partida Prevista</th>
+              <th>Chegada Prevista</th>
+              <th>Partida Real</th>
+              <th>Chegada Real</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for voo in voos_taxiando %}
+              <tr>
+                <th>{{voo.companhia_aerea}}</th>
+                <th>{{voo.codigo}}</th>
+                <th>{{voo.origem}}</th>
+                <th>{{voo.destino}}</th>
+                <th>{{voo.partida_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.partida_real|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_real|date:"H:i d/m/Y"}}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if voos_taxiando|length == 0 %}
+          <h4 style="color: rgb(255, 103, 103); text-align: center;">(Não há voos nessa categoria.)</h4>
+        {% endif %}
+      </div>
+    </div>
+
+    <h2 style="text-align: center"> Voos prontos </h2>
+
+    <div id="table-wrapper">
+      <div id="table-scroll">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Companhia Aérea</th>
+              <th>Código</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Partida Prevista</th>
+              <th>Chegada Prevista</th>
+              <th>Partida Real</th>
+              <th>Chegada Real</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for voo in voos_prontos %}
+              <tr>
+                <th>{{voo.companhia_aerea}}</th>
+                <th>{{voo.codigo}}</th>
+                <th>{{voo.origem}}</th>
+                <th>{{voo.destino}}</th>
+                <th>{{voo.partida_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.partida_real|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_real|date:"H:i d/m/Y"}}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if voos_prontos|length == 0 %}
+          <h4 style="color: rgb(255, 103, 103); text-align: center;">(Não há voos nessa categoria.)</h4>
+        {% endif %}
+      </div>
+    </div>
+
+    <h2 style="text-align: center"> Voos em andamento </h2>
+
+    <div id="table-wrapper">
+      <div id="table-scroll">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Companhia Aérea</th>
+              <th>Código</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Partida Prevista</th>
+              <th>Chegada Prevista</th>
+              <th>Partida Real</th>
+              <th>Chegada Real</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for voo in voos_em_andamento %}
+              <tr>
+                <th>{{voo.companhia_aerea}}</th>
+                <th>{{voo.codigo}}</th>
+                <th>{{voo.origem}}</th>
+                <th>{{voo.destino}}</th>
+                <th>{{voo.partida_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.partida_real|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_real|date:"H:i d/m/Y"}}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if voos_em_andamento|length == 0 %}
+          <h4 style="color: rgb(255, 103, 103); text-align: center;">(Não há voos nessa categoria.)</h4>
+        {% endif %}
+      </div>
+    </div>
+
+    <h2 style="text-align: center"> Voos finalizados </h2>
+
+    <div id="table-wrapper">
+      <div id="table-scroll">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Companhia Aérea</th>
+              <th>Código</th>
+              <th>Origem</th>
+              <th>Destino</th>
+              <th>Partida Prevista</th>
+              <th>Chegada Prevista</th>
+              <th>Partida Real</th>
+              <th>Chegada Real</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for voo in voos_finalizados %}
+              <tr>
+                <th>{{voo.companhia_aerea}}</th>
+                <th>{{voo.codigo}}</th>
+                <th>{{voo.origem}}</th>
+                <th>{{voo.destino}}</th>
+                <th>{{voo.partida_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_prevista|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.partida_real|date:"H:i d/m/Y"}}</th>
+                <th>{{voo.chegada_real|date:"H:i d/m/Y"}}</th>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if voos_finalizados|length == 0 %}
+          <h4 style="color: rgb(255, 103, 103); text-align: center;">(Não há voos nessa categoria.)</h4>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

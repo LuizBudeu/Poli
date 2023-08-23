@@ -1,0 +1,97 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verificar dados de um voo</title>
+    <link rel="stylesheet" href="{% static 'projeto/home.css'%}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+    #table-wrapper {
+      position:relative;
+    }
+    #table-scroll {
+      height:450px;
+      overflow:auto;  
+      margin-top:20px;
+    }
+    #table-wrapper table {
+      width:100%;
+    }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <div>
+              <a class="btn btn-primary" href="{% url 'crud' %}" role="button">
+                Voltar &raquo;
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <h1 style="text-align: center">Verificar dados de um Voo</h1>
+
+    <div>
+      <p style="padding-left:5px"><b>Filtrar</b> voos por código ou por ID:
+        <form style="padding-left:5px" method="get">
+          {{ voos_filter.form }}
+          <input type="submit" />
+        </form>
+      </p>
+
+    {% if error %}
+      <div class="alert alert-danger" role="alert">
+        Não foi possível encontrar voo com código <b>{{codigo}}</b>
+      </div>
+    {% endif %}
+
+      <div id="table-wrapper">
+        <div id="table-scroll">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>ID</th>
+                <th>Companhia Aérea</th>
+                <th>Código</th>
+                <th>Status</th>
+                <th>Origem</th>
+                <th>Destino</th>
+                <th>Partida Prevista</th>
+                <th>Chegada Prevista</th>
+                <th>Partida Real</th>
+                <th>Chegada Real</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for voo in voos_qs %}
+                <tr>
+                  <th>{{voo.id}}</th>
+                  <th>{{voo.companhia_aerea}}</th>
+                  <th>{{voo.codigo}}</th>
+                  <th>{{voo.status}}</th>
+                  <th>{{voo.origem}}</th>
+                  <th>{{voo.destino}}</th>
+                  <th>{{voo.partida_prevista|date:"H:i d/m/Y"}}</th>
+                  <th>{{voo.chegada_prevista|date:"H:i d/m/Y"}}</th>
+                  <th>{{voo.partida_real|date:"H:i d/m/Y"}}</th>
+                  <th>{{voo.chegada_real|date:"H:i d/m/Y"}}</th>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    #table-wrapper {
+      position:relative;
+    }
+    #table-scroll {
+      height:450px;
+      overflow:auto;  
+      margin-top:20px;
+    }
+    #table-wrapper table {
+      width:100%;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitoramento de voos</title>
+    <link rel="stylesheet" href="{% static 'projeto/home.css'%}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <h2 style="text-align: center">Monitoramento de Voos</h2>
+    <h3 style="padding-left:10px">Chegadas</h3>
+    <div>
+      <form style="padding-left:10px" method="get">
+        {{ voos_filter.form }}
+        <input type="submit" value="Pesquisar"/>
+      </form>
+
+      <div id="table-wrapper">
+        <div id="table-scroll">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>Companhia Aérea</th>
+                <th>Código</th>
+                <th>Status</th>
+                <th>Chegada prevista</th>
+                <th>Chegada real</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for voo in voos_qs %}
+                {% if voo.destino == "São Paulo" %}
+                <tr>                  
+                  <th>{{voo.companhia_aerea}}</th>
+                  <th>{{voo.codigo}}</th>
+                  <th>{{voo.status}}</th>
+                  <th>{{voo.chegada_prevista}}</th>
+                  <th>{{voo.chegada_real}}</th>
+                </tr>
+                {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <h3 style="padding-left:10px">Partidas</h3>
+      <div>
+        <form style="padding-left:10px" method="get">
+          {{ voos_filter.form }}
+          <input type="submit" value="Pesquisar"/>
+        </form>
+  
+        <div id="table-wrapper">
+          <div id="table-scroll">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Companhia Aerea</th>
+                  <th>Código</th>
+                  <th>Status</th>
+                  <th>Destino</th>
+                  <th>Partida Prevista</th>
+                  <th>Partida Real</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for voo in voos_qs %}
+                  {% if voo.origem == "São Paulo" %}
+                  <tr>
+                    <th>{{voo.companhia_aerea}}</th>
+                    <th>{{voo.codigo}}</th>
+                    <th>{{voo.status}}</th>
+                    <th>{{voo.destino}}</th>
+                    <th>{{voo.partida_prevista}}</th>
+                    <th>{{voo.partida_real}}</th>
+                  </tr>
+                  {% endif %}
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-6">
+      <a class="btn btn-primary" href="{% url 'estado' %}" role="button"> Mudar Estado do voo &raquo; </a>
+    </div>
+    <br/>
+  </body>
+</html>

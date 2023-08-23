@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar um voo</title>
+    <link rel="stylesheet" href="{% static 'projeto/home.css'%}" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <div>
+              <a class="btn btn-primary" href="{% url 'crud' %}" role="button">
+                Voltar &raquo;
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <h1 style="text-align: center">Criar um Voo</h1>
+
+    <form action="{% url 'crudcreate' %}" method="POST">
+      <div class="form-group col-md-3">
+        {% csrf_token %}
+        <label for="companhia_aerea">Companhia Aérea</label>
+        <input
+          name="companhia_aerea"
+          type="text"
+          class="form-control"
+          placeholder="Companhia Aérea"
+        />
+        <label for="codigo">Código</label>
+        <input
+          name="codigo"
+          type="text"
+          class="form-control"
+          placeholder="Código"
+        />
+        <label for="origem">Origem</label>
+        <input
+          name="origem"
+          type="text"
+          class="form-control"
+          placeholder="Origem"
+        />
+        <label for="destino">Destino</label>
+        <input
+          name="destino"
+          type="text"
+          class="form-control"
+          placeholder="Destino"
+        />
+        <label for="partida_prevista">Partida prevista</label>
+        <input
+          name="partida_prevista"
+          type="datetime-local"
+          class="form-control"
+          placeholder="Partida prevista"
+        />
+        <label for="chegada_prevista">Chegada prevista</label>
+        <input
+          name="chegada_prevista"
+          type="datetime-local"
+          class="form-control"
+          placeholder="Chegada prevista"
+        />
+        <br/>
+        <button type="submit" class="btn btn-primary">Criar</button>
+      </div>
+
+    </form>
+
+    {% if obj %}
+    <div class="alert alert-success" role="alert">Voo criado com sucesso!</div>
+    {% endif %} {% if error %}
+    <div class="alert alert-danger" role="alert">{{error}}</div>
+    {% endif %} {% for exc in excs %}
+    <div class="alert alert-danger" role="alert">{{exc}}</div>
+    {% endfor %}
+  </body>
+</html>

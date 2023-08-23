@@ -1,0 +1,88 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatório gerado</title>
+    <link rel="stylesheet" href="{% static 'projeto/home.css'%}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <div>
+              <a class="btn btn-primary" href="{% url 'relatorio' %}" role="button">Fechar Relatório &raquo;</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="col-lg">
+      <h2>Relatório - voos de {{data_inicio}} até {{data_fim}}</h2>
+    </div>
+    <br/>
+
+    <div class="col-md-4">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Característica</th>
+            <th scope="col">Quantidade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Voos finalizados</th>
+            <td>{{finalizados}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Voos cancelados</th>
+            <td>{{cancelados}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Voos atrasados</th>
+            <td>{{atrasados}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Voos não atrasados</th>
+            <td>{{nao_atrasados}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Número de partidas</th>
+            <td>{{partidas}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Número de chegadas</th>
+            <td>{{chegadas}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>    
+    <br/>
+    
+    <div class="col-md-8">
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th scope="row">Companhia aérea com mais voos finalizados</th>
+            <td>{{companhia_mais_finalizados}}</td>
+            <td>(Voos finalizados: {{mais_finalizados}})</td>
+          </tr>
+          <tr>
+            <th scope="row">Companhia aérea com mais voos cancelados</th>
+            <td>{{companhia_mais_cancelados}}</td>
+            <td>(Voos cancelados: {{mais_cancelados}})</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </body>
+</html>

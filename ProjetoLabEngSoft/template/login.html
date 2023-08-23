@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link rel="stylesheet" href="{% static 'projeto/login.css' %}" />
+  </head>
+  <body>
+    <div class="sidenav">
+      <div class="login-main-text">
+        <h1>PCS3643 - Laboratório de Engenharia de Software</h1>
+        <h2>
+          Monitoramento<br />
+          Página de Login
+        </h2>
+        <p>Efetue o login para acessar as funcionalidades do sistema.</p>
+      </div>
+    </div>
+    <div class="main">
+      <div class="col-md-6 col-sm-12">
+        <div class="login-form">
+          <form action="{% url 'login' %}" method="POST">
+            <div class="form-group">
+              {% csrf_token %}
+              <label for="username">Nome de usuário</label>
+              <input
+                name="username"
+                type="text"
+                class="form-control"
+                placeholder="Nome de usuário"
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Senha</label>
+              <input
+                name="password"
+                type="password"
+                class="form-control"
+                placeholder="Senha"
+              />
+            </div>
+            <button type="submit" class="btn btn-black">Login</button>
+          </form>
+        </div>
+        <br />
+        <p style="color: rgb(255, 56, 56)">{{error_msg}}</p>
+      </div>
+    </div>
+  </body>
+</html>

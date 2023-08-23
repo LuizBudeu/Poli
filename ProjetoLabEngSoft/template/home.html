@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Home</title>
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.0/examples/jumbotron/"
+    />
+
+    <link rel="stylesheet" href="{% static 'projeto/home.css'%}" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li
+            style="position: absolute; top: 8px; right: 16px"
+            class="nav-item active"
+          >
+            <a class="nav-link" href="{% url 'login' %}"
+              >Sair <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main">
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Controle de Monitoramento de Voos</h1>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Gerenciar Dados de Voos</h2>
+            <p>
+              Opções para criar, ler, editar e deletar dados de voos na base de
+              dados.
+            </p>
+            <p>
+              {% if permission == 'all' or permission == 'crud' %}
+              <a class="btn btn-primary" href="{% url 'crud' %}" role="button"
+                >Controle de Dados de Voos &raquo;</a
+              >
+              {% else %} 
+              <h6 style="color:rgb(255, 56, 56);">Você não tem permissão para acessar essa página.</h6>
+              {% endif %}
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h2>Monitoramento de Voos</h2>
+            <p>Verificar e atualizar os estados dos voos no Sistema.</p>
+            <p>
+              {% if permission == 'all' or permission == 'monitoramento' %}
+              <a
+                class="btn btn-primary"
+                href="{% url 'monitoramento' %}"
+                role="button"
+                >Monitoramento de Voos &raquo;</a
+              >
+              {% else %} 
+              <h6 style="color:rgb(255, 56, 56);">Você não tem permissão para acessar essa página.</h6>
+              {% endif %}
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h2>Gerar relatórios</h2>
+            <p>
+              Ver relatórios gerados para algum período de tempo especificado,
+              ou para o dia atual.
+            </p>
+            <p>
+              {% if permission == 'all' or permission == 'relatorio' %}
+              <a
+                class="btn btn-primary"
+                href="{% url 'relatorio' %}"
+                role="button"
+                >Geração de Relatórios &raquo;</a
+              >
+              {% else %} 
+                <h6 style="color:rgb(255, 56, 56);">Você não tem permissão para acessar essa página.</h6>
+              {% endif %}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+      </div>
+    </main>
+  </body>
+</html>
