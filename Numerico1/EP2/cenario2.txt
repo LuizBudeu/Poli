@@ -1,0 +1,7 @@
+K = 5.7    sigma = 0.1692    T = 0.25    r = 10.75%    t = 0.3333333333333333    S = 5.6376    M = 1800
+Prêmio da opção:
+Utilizando a aproximação (6): 4130.500667314661
+Utilizando a aproximação (7): 4147.477588034691
+Comparação com o valor real respondida no relatório.
+Análise o cenário de lucro/prejuízo estimado para 1 de Janeiro de 2022:
+Ver gráficos
