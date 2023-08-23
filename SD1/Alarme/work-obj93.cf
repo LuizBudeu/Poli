@@ -1,0 +1,7 @@
+v 4
+file . "alarme.vhd" "845183e6d7a31ffc524b6abe0738c817f9ef4743" "20200912015557.594":
+  entity alarme at 1( 0) + 0 on 15;
+  architecture portaslogicas of alarme at 8( 97) + 0 on 16;
+file . "alarme_tb.vhd" "5fde68b30aabfd8373e064f7d73af53ce66c781a" "20210531133000.602":
+  entity alarme_tb at 2( 15) + 0 on 19;
+  architecture teste of alarme_tb at 5( 51) + 0 on 20;

@@ -1,0 +1,4 @@
+v 4
+file . "t8a2.vhdl" "c139fb5cd8c4cab7f7cc5288ca3d2498cf955a18" "20201128180120.393":
+  entity rom_arquivo at 1( 0) + 0 on 13;
+  architecture arq of rom_arquivo at 12( 209) + 0 on 14;

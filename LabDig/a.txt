@@ -1,0 +1,38 @@
+ATM
+PCS 2302/2024 autogenerate
+$ 1 # X , Y B
+B $ 1 # X , Y
+1
+1
+2
+q0
+undefined
+q0 $ q1 $ R
+q1 1 q2 X R
+q1 # q6 # R
+q2 1 q2 1 R
+q2 # q3 # R
+q3 1 q3 1 R
+q3 B q4 # R
+q3 # q4 # R
+q4 1 q4 1 R
+q4 B q5 1 R
+q5 1 q5 1 L
+q5 B q5 B L
+q5 # q5 # L
+q5 X q1 1 R
+q6 1 q7 Y R
+q6 # q10 # R
+q7 1 q7 1 R
+q7 # q7 # R
+q7 B q8 B L
+q8 1 q9 B L
+q9 1 q9 1 L
+q9 B q9 B L
+q9 # q9 # L
+q9 Y q6 1 R
+q10 1 q10 1 R
+q10 # q10 # R
+q10 B q11 1 R
+q11 B q11 B L
+end

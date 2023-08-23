@@ -1,0 +1,4 @@
+v 4
+file . "t2a2.vhd" "f6afd6e0cc4525dcd603f627d0a77d225ba4e119" "20200924005011.072":
+  entity gray2bin at 1( 0) + 0 on 13;
+  architecture arc of gray2bin at 11( 168) + 0 on 14;

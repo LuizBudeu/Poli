@@ -1,0 +1,4 @@
+v 4
+file . "t4a2.vhdl" "11b6dc9f9d9e51291027f362d4951e94b1ecddfe" "20201124210934.009":
+  entity secded_dec16 at 1( 0) + 0 on 23;
+  architecture arc of secded_dec16 at 15( 275) + 0 on 24;

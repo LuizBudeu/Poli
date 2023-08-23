@@ -1,0 +1,7 @@
+v 4
+file . "t2a2_tb.vhd" "a9135c1149f2d5fde8e247f7aa6d2a64415cf601" "20210531134420.617":
+  entity regfile_tb at 1( 0) + 0 on 51;
+  architecture behaviour of regfile_tb at 7( 105) + 0 on 52;
+file . "t2a2.vhd" "3442d8407e0484ce37069c2de37c3b02e9343b1e" "20210531134415.232":
+  entity regfile at 1( 0) + 0 on 49;
+  architecture arq of regfile at 21( 494) + 0 on 50;

@@ -1,0 +1,4 @@
+v 4
+file . "t7a1.vhdl" "4e70b5437fd47c2a19a8a88fb46be2a1a0e49998" "20201123014304.047":
+  entity registrador_universal at 1( 0) + 0 on 25;
+  architecture arq of registrador_universal at 17( 366) + 0 on 26;

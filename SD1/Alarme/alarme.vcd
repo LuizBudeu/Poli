@@ -1,0 +1,79 @@
+$date
+  Fri Sep 11 22:58:37 2020
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$scope module standard $end
+$upscope $end
+$scope module alarme_tb $end
+$var reg 1 ! j0i $end
+$var reg 1 " j1i $end
+$var reg 1 # j2i $end
+$var reg 1 $ j3i $end
+$var reg 1 % en0i $end
+$var reg 1 & pi $end
+$var reg 1 ' s0i $end
+$scope module dut $end
+$var reg 1 ( j0 $end
+$var reg 1 ) j1 $end
+$var reg 1 * j2 $end
+$var reg 1 + j3 $end
+$var reg 1 , en0 $end
+$var reg 1 - p $end
+$var reg 1 . s0 $end
+$var reg 1 / j2n $end
+$var reg 1 0 j3n $end
+$var reg 1 1 janelas $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+0!
+0"
+0#
+0$
+0%
+0&
+0'
+0(
+0)
+0*
+0+
+0,
+0-
+0.
+1/
+10
+11
+#1000000
+1&
+1'
+1-
+1.
+#2000000
+1"
+1#
+1$
+1%
+0&
+1)
+1*
+1+
+1,
+0-
+0/
+00
+#3000000
+0"
+0#
+1'
+0)
+0*
+1.
+1/
+11
+#4000000

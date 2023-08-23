@@ -1,0 +1,10 @@
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("69961337157", "901133248", "Marcia Gomes", "1979-12-23", "Rua Mondizes, 25", "55158118", "5501047883347", "MarciaGomes@gmail.com");
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("47168482354", "579560337", "Francisco Lima", "1973-5-24", "Rua Ferdinando, 244", "76447645", "5501291187673", "FranciscoLima@gmail.com");
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("79690128620", "337160656", "Ana Lima", "1979-7-26", "Rua Ilhabela, 955", "35700428", "5501944932660", "AnaLima@gmail.com");
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("37611417791", "640577888", "Maria Pereira", "1998-2-16", "Rua Elizabeth, 140", "59619383", "5501388003050", "MariaPereira@gmail.com");
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("25576342263", "199251824", "Marcos Costa", "1976-4-15", "Rua Abelha, 750", "18539105", "5501708509220", "MarcosCosta@gmail.com");
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("58112733816", "664587183", "Luiz Oliveira", "1994-1-5", "Rua Abelha, 527", "31464208", "5501121722500", "LuizOliveira@gmail.com");
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("17421468227", "365764358", "Ana Costa", "1969-2-14", "Rua Hector, 468", "69735016", "5501321884211", "AnaCosta@gmail.com");
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("52552882766", "082760491", "Ana Silva", "1978-2-23", "Rua Hector, 756", "02334041", "5501596157254", "AnaSilva@gmail.com");
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("33404013836", "512447226", "Jose Santos", "1989-9-6", "Rua Bosque, 214", "59203099", "5501707967562", "JoseSantos@gmail.com");
+INSERT INTO cliente (cpf, rg, nome, data_nasc, endereco, cep, telefone, email) values ("58224428970", "444523553", "Luiz Costa", "1972-5-14", "Rua Gomes, 127", "73507893", "5501009865678", "LuizCosta@gmail.com");

@@ -1,0 +1,4 @@
+v 4
+file . "t2a3.vhd" "4990429e2c9c496d46e24bd6f91006de2bb3e10f" "20210531224301.350":
+  entity alu at 1( 0) + 0 on 23;
+  architecture arq of alu at 18( 427) + 0 on 24;

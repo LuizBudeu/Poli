@@ -1,0 +1,4 @@
+v 4
+file . "t4a1.vhd" "81ff11c47bbbe9b137ec91d63b9713d8904e8738" "20210731012226.411":
+  entity uart_tx at 1( 0) + 0 on 31;
+  architecture arq of uart_tx at 20( 359) + 0 on 32;
